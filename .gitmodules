@@ -1,0 +1,3 @@
+[submodule "mlops-zoomcamp"]
+	path = mlops-zoomcamp
+	url = https://github.com/DataTalksClub/mlops-zoomcamp.git
