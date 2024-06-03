@@ -12,7 +12,10 @@ For this we recommend creating a separate Python environment, for example, you c
 
 Once you installed the package, run the command `mlflow --version` and check the output.
 
-What's the version that you have?
+What's the version that you have?   $ mlflow --version
+mlflow, 
+Q1 Answer: version 2.13.1
+
 
 
 
@@ -45,6 +48,8 @@ How many files were saved to `OUTPUT_FOLDER`?
 * 4
 * 7
 
+Q2. Answer: 4 files
+
 
 ## Q3. Train a model with autolog
 
@@ -71,6 +76,7 @@ What is the value of the `min_samples_split` parameter:
 * 8
 * 10
 
+Q3. Answer: The min_samples_split is 2.
 
 ## Q4. Launch the tracking server locally
 
