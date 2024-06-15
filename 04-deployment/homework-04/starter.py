@@ -12,6 +12,8 @@ import pickle
 import pandas as pd
 from datetime import date
 
+from urllib import request
+from urllib.error import HTTPError
 
 
 # Load the model
@@ -27,6 +29,7 @@ categorical = ['PULocationID', 'DOLocationID']
 # Read in the data for March 2023
 def read_data(filename):
     df = pd.read_parquet(filename)
+
     
     df['duration'] = df.tpep_dropoff_datetime - df.tpep_pickup_datetime
     df['duration'] = df.duration.dt.total_seconds() / 60
@@ -90,12 +93,14 @@ def run():
     month = int(sys.argv[3]) # 3
 
     # Input date: year and month to get the Taxi data
-    input_file = f"https://d37ci6vzurychx.cloudfront.net/trip-data/{taxi_type}_tripdata_{year:04d}-{month:02d}.parquet" 
+   # input_file = f"https://d37ci6vzurychx.cloudfront.net/trip-data/{taxi_type}_tripdata_{year:04d}-{month:02d}.parquet" 
+
+
+    input_file = f'https://d37ci6vzurychx.cloudfront.net/trip-data/{taxi_type}_tripdata_{year:04d}-{month:02d}.parquet'
     output_file = './output_file'
-    model = model.bin
+    model_file = './model.bin'
 
-    apply_model(input_file=input_file, model=model, output_file = output_file, year = year, month = month)
-
+    apply_model(input_file=input_file, model_file = model_file, output_file = output_file, year = year, month = month)
 
 
 
