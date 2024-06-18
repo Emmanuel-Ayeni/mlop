@@ -1,0 +1,20 @@
+# Already created base image with vectorizer and model
+FROM agrigorev/zoomcamp-model:mlops-2024-3.10.13-slim
+
+RUN pip install -U pip
+RUN pip install pipenv 
+
+WORKDIR /app
+
+# Copy your script into the container
+COPY starter.py .
+
+# If you have any dependencies in a requirements.txt file, copy that in as well
+COPY requirements.txt .
+
+# COPY [ "predict.py", "model.bin", "./" ]
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Run script
+CMD [ "python", "starter.py", "yellow", "2023", "5" ]
